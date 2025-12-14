@@ -7,5 +7,3 @@ matplotlib
 schedule
 pytest
 sqlalchemy
-fastapi
-uvicorn

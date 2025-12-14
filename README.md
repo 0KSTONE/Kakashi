@@ -1,2 +1,5 @@
 # Kakashi
-It's Kakashi, the copy ninja of the hidden leaf
+
+Kalshi trading bot + data center.
+
+Money branch only.
