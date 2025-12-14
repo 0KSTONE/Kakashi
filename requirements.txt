@@ -1,0 +1,11 @@
+requests
+pandas
+numpy
+python-dotenv
+pydantic
+matplotlib
+schedule
+pytest
+sqlalchemy
+fastapi
+uvicorn
