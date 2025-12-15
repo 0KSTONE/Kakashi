@@ -34,6 +34,9 @@ def threshold_decision(
     if positions_open >= max_positions_open:
         return None
 
+    if snap.last is None or snap.bid is None or snap.ask is None:
+        return None
+
     p_hat = simple_baseline_p_hat(snap)
     edge = expected_value_yes(snap.last, p_hat)
 
