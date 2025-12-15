@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, ValidationInfo, field_validator
 
 
 class Market(BaseModel):
@@ -19,9 +19,10 @@ class Snapshot(BaseModel):
     last: float = Field(ge=0, le=1)
     volume: int = Field(ge=0)
 
-    @validator("ask")
-    def ask_ge_bid(cls, v: float, values):
-        bid = values.get("bid")
+    @field_validator("ask")
+    @classmethod
+    def ask_ge_bid(cls, v: float, info: ValidationInfo):
+        bid = info.data.get("bid")
         if bid is not None and v < bid:
             raise ValueError("ask must be >= bid")
         return v
